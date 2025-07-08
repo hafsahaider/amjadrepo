@@ -1,0 +1,39 @@
+/* CSS Reset */
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+/* CSS Variables */
+:root{
+    --navbar-height:59px;
+}
+/* navigation Bar */
+#navbar{
+    display: flex;
+    align-items: center;
+}
+/*  Navigation bar: logo and image  */
+#logo{
+    height: 50px;
+    margin: 10px 34px;
+
+}
+#logo img{
+    margin: 10px 34px;
+    height: 50px;
+
+}
+
+/* Navigation bar: list styling */
+#navbar ul{
+
+    display: flex;
+}
+#navbar ul li{
+    display: flex;
+    color: white;
+    list-style: none;
+    font-size: 1.3re;
+}

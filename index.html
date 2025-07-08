@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amjad Restaurant</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #34495e;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #1abc9c;
+        }
+
+        /* Hero section with background image */
+        .hero {
+            background-image: url('https://img.freepik.com/premium-photo/beautiful-food-presentation-most-amazing-hd-8k-wallpaper-background-stock-photographic-image_915071-23735.jpg?w=1380');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: disc inside;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .hero {
+                height: 250px;
+                font-size: 1.5em;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+        }
+
+        /* Button style */
+        .btn {
+            background-color: #1abc9c;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        #menu {
+            text-decoration: double;
+            text-align: center;
+            width: 1200px;
+            height: 200px auto;
+            color: white;
+            background-color: black;
+        }
+
+        .btn:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to Amjad Restaurant</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#Menu">menu</a>
+        <a href="#contact">Contact</a>
+        <a href="#About us">About us</a>
+
+    </nav>
+
+    <section class="hero">
+        Delicious Food & Cozy Ambiance
+    </section>
+
+    <main>
+        <section id="about" class="section">
+
+        </section>
+
+        <section id="menu" class="section">
+
+            <ul>
+                <h1>
+                    <li>Grilled Chicken</li>
+                </h1>
+                <img src="https://www.kitchenkonfidence.com/wp-content/uploads/2022/07/Grilled-Lemon-Pepper-Chicken-4.jpg?w1200"
+                    alt="Grilled Chicken">
+                <h1>
+                    <li>Beef Biryani</li>
+                </h1>
+                <img src="https://img.freepik.com/premium-photo/indian-spicy-beef-biryani-with-raita-gulab-jamun-served-dish-side-view-grey-background_689047-1189.jpg?w=1200"
+                    alt="beef baryani">
+                <h1>
+                    <li>Vegetarian Pizza</li>
+                </h1>
+
+                <img src="https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/vmbwklef/1dea95a4-c722-4df5-91f4-2ea11545c594.jpg"
+                    alt="vegetarian-pizza">
+                <h1>
+                    <li>Fresh Juices</li>
+                </h1>
+                <img src="https://st3.depositphotos.com/1811868/15791/i/1600/depositphotos_157911646-stock-photo-fresh-color-juices-smoothie-tropical.jpg"
+                    alt="fresh juice">
+                <H1>
+                    <li>Desserts & Sweets</li>
+                </H1>
+                <img src="https://whimsyandspice.com/wp-content/uploads/2022/09/28-Of-The-Best-Traditional-Chinese-Dessert-Recipes.jpg"
+                    alt="desserts & sweets">
+                <h1>
+                    <li>naana khari</li>
+                    <img src="https://pipingpotcurry.com/wp-content/uploads/2023/02/Best-Chicken-Karahi-Recipe-Piping-Pot-Curry.jpg"
+                        alt="naan khari">
+                </H1>
+                <h1>
+                    <li>daal channa and roti </li>
+                </h1>
+                <img src="https://i.ytimg.com/vi/u2aAxgghhQY/maxresdefault.jpg" alt="daalchanna and roti">
+                <br>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d... (apne location ka iframe code) ..."
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </br>
+                <h1>
+
+                </h1>
+
+            </ul>
+            <button class="btn" onclick="booking()">Book a Table</button>
+        </section>
+
+        <section id="contact" class="section">
+            <h1>Contact Us</h1>
+            <p>Address: 123 Main Street, City</p>
+            <p>Phone: +123-456-7890</p>
+            <p>Email:amjad123@GOOGLE.com</p>
+        </section>
+    </main>
+    <h2>About Us</h2>
+    <p>Amjad Restaurant offers a variety of delicious cuisines and a friendly environment to make your dining
+        experience memorable. Whether you're here for lunch or dinner,breakfast, we have something special for everyone!
+    </p>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

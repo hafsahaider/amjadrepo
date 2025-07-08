@@ -1,0 +1,77 @@
+Ko<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Signup Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            /* اپنی پس منظر کی تصویر کا لنک یہاں لگائیں */
+            background-image: url('https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.1&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Join the Best Gym in Delhi</h2>
+        <form>
+            <label for="name">Enter your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+            <label for="age">Enter your Age</label>
+            <input type="number" id="age" name="age" placeholder="Your Age" required />
+
+            <label for="gender">Enter your Gender</label>
+            <input type="text" id="gender" name="gender" placeholder="Your Gender" required />
+
+            <label for="locality">Enter your Locality</label>
+            <input type="text" id="locality" name="locality" placeholder="Your Locality" required />
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

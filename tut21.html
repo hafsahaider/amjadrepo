@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Alignment</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel=>"https://crunchify.com/wp-content/uploads/2023/07/Best-Google-Fonts.jpg"
+    <style>
+        * {}
+
+        .container {
+            border: 3px solid red;
+            margin: 33px auto;
+            width: 900px;
+        }
+
+        .item {
+            border: 3px solid grey;
+            margin: 12px 3px;
+            padding: 12px 3px;
+            background-color: rgb(241, 231, 227);
+        }
+
+        #fruit {
+            float: right;
+            width: 48%;
+        }
+
+        #computer {
+            float: left;
+            width: 48%;
+        }
+
+        #stationary {
+            /* float: left; */
+            clear: both;
+            clear: left;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="fruit" class="item">
+            <h3>Fruits</h3>
+            <p id="fruitpara" class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum numquam
+                ullam
+                distinctio libero expedita vel, delectus possimus...</p>
+        </div>
+
+        <div id="computer" class="item">
+            <h3>Computer</h3>
+            <p id="computerpara" class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                numquam, adipisci hic vitae commodi sed libero error inventore...</p>
+        </div>
+
+        <div id="stationery" class="item">
+            <h3>Stationery</h3>
+            <p id="stationerypara" class="para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem ut
+                veniam dolorum, natus soluta animi rerum pariatur iure...</p>
+        </div>
+    </div>
+</body>
+
+</html>
