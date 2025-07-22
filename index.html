@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amjad Restaurant</title>
+    <title>Hafsa Haider - Web Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://cdn.eatigo.com/restaurant-image/5011302_1d82af62-5462-4bfa-9c80-66d19b08fc8f.jpeg"
+        rel="stylesheet" />
     <style>
-        /* Reset some default styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,119 +16,240 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f8f8;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
             color: #333;
         }
 
+        /* Header & Nav */
         header {
-            background-color: #2c3e50;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: #fff;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.7em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            background-color: #34495e;
+            background-color: #222;
+            position: sticky;
+            top: 0;
+            z-index: 999;
         }
 
         nav a {
             color: #fff;
-            padding: 14px 20px;
+            padding: 15px 20px;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
 
         nav a:hover {
-            background-color: #1abc9c;
+            background-color: #444;
+            transform: scale(1.05);
         }
 
-        /* Hero section with background image */
-        .hero {
-            background-image: url('https://img.freepik.com/premium-photo/beautiful-food-presentation-most-amazing-hd-8k-wallpaper-background-stock-photographic-image_915071-23735.jpg?w=1380');
-            background-size: cover;
-            background-position: center;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px #000;
+        /* Sections Styles */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
             text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #333;
         }
 
-        main {
-            padding: 20px;
-        }
-
-        .section {
+        /* About Section */
+        .about {
             background-color: #fff;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            list-style: disc inside;
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #2c3e50;
-            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            padding: 15px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
 
-        /* Responsive */
+        .about p {
+            font-size: 1.1em;
+            margin-top: 20px;
+            line-height: 1.6;
+            font-style: italic;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* Projects Section */
+        .projects {
+            margin-top: 50px;
+
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            background-color: antiquewhite;
+            color: #222;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project h3 {
+            padding: 10px 15px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .project p {
+            padding: 0 15px 15px 15px;
+            font-size: 1em;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #fff;
+            margin-top: 50px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skills li {
+            background-color: black;
+            color: white;
+            margin: 10px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+
+        .skills li:hover {
+            background-color: #cac522;
+            color: #764ba2;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #fff;
+            margin-top: 50px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .contact a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive tweaks */
         @media(max-width: 768px) {
-            .hero {
-                height: 250px;
-                font-size: 1.5em;
+            header h1 {
+                font-size: 2em;
             }
 
             nav {
                 flex-direction: column;
             }
+
+            nav a {
+                padding: 10px;
+            }
+
+            section {
+                padding: 40px 10px;
+            }
         }
 
-        /* Button style */
-        .btn {
-            background-color: #1abc9c;
-            padding: 12px 24px;
-            border: none;
+
+        from {
+            width: 30px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid red;
             border-radius: 5px;
-            color: #fff;
-            cursor: pointer;
-            margin-top: 15px;
-            font-size: 1em;
-            transition: background 0.3s;
+            background-color: #cac522;
         }
 
-        #menu {
-            text-decoration: double;
-            text-align: center;
-            width: 1200px;
-            height: 200px auto;
-            color: white;
-            background-color: black;
+        input,
+        textarea,
+        button {
+            width: 10%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid rgb(26, 26, 25);
         }
 
-        .btn:hover {
-            background-color: #16a085;
+        button {
+            background-color: aqua;
+            color: black;
+            border: none;
+        }
+
+        button.reset {
+            background-color: #c3c2ba;
+            border: 2px solid black;
         }
     </style>
 </head>
@@ -134,96 +257,100 @@
 <body>
 
     <header>
-        <h1>Welcome to Amjad Restaurant</h1>
+        <h1>Hafsa Haider</h1>
+        <p>Web Developer & Designer</p>
     </header>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#Menu">menu</a>
+        <a href="#home">home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a href="#About us">About us</a>
-
+        <a href="about">about</a>
     </nav>
 
-    <section class="hero">
-        Delicious Food & Cozy Ambiance
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>Hello! My name is Hafsa Haider,I am an experienced web developer and designer with around 8 years of
+            expertise.
+
+            I am passionate about all aspects of web development, from front-end designing to back-end integration. I am
+            always eager to learn new tools and techniques to stay current in this rapidly evolving field.</p>
     </section>
 
-    <main>
-        <section id="about" class="section">
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project">
+                <img src="https://cdn.eatigo.com/restaurant-image/5011302_1d82af62-5462-4bfa-9c80-66d19b08fc8f.jpeg"
+                    alt="Restaurant 1" />
+                <h3>Restaurant Website</h3>
+                <p>Modern & responsive website design for Restaurant with menu & booking features.</p>
+            </div>
+            <div class="project">
+                <img src="https://www.news-press.com/gcdn/presto/2023/03/30/PFTM/e3389298-c691-4573-99b5-14afe6c093bd-Interior.jpg?crop=4927,2772,x0,y239&width=3200&height=1801&format=pjpg&auto=webp"
+                    alt="Restaurant 2" />
+                <h3>Restaurant Website</h3>
+                <p>Elegant website for Restaurant with a focus on hospitality & customer engagement.</p>
+            </div>
+            <div class="project">
+                <img src="https://cdn.eatigo.com/restaurant-image/5011302_1d82af62-5462-4bfa-9c80-66d19b08fc8f.jpeg"
+                    alt="Restaurant 3" />
+                <h3>Restaurant Website</h3>
+                <p>Creative design for Restaurant , optimized for mobile & desktop.</p>
+            </div>
+        </div>
+    </section>
 
-        </section>
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Web Designing</li>
+            <li>HTML, css , js</li>
+            <li>Responsive & UI/UX Design</li>
+            <li>Adobe Photoshop, Adobe XD</li>
+        </ul>
+    </section>
 
-        <section id="menu" class="section">
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
 
-            <ul>
-                <h1>
-                    <li>Grilled Chicken</li>
-                </h1>
-                <img src="https://www.kitchenkonfidence.com/wp-content/uploads/2022/07/Grilled-Lemon-Pepper-Chicken-4.jpg?w1200"
-                    alt="Grilled Chicken">
-                <h1>
-                    <li>Beef Biryani</li>
-                </h1>
-                <img src="https://img.freepik.com/premium-photo/indian-spicy-beef-biryani-with-raita-gulab-jamun-served-dish-side-view-grey-background_689047-1189.jpg?w=1200"
-                    alt="beef baryani">
-                <h1>
-                    <li>Vegetarian Pizza</li>
-                </h1>
+        phone:<input type="phone number" name="phone number"></br>
+        <br>
+        <div>
 
-                <img src="https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/vmbwklef/1dea95a4-c722-4df5-91f4-2ea11545c594.jpg"
-                    alt="vegetarian-pizza">
-                <h1>
-                    <li>Fresh Juices</li>
-                </h1>
-                <img src="https://st3.depositphotos.com/1811868/15791/i/1600/depositphotos_157911646-stock-photo-fresh-color-juices-smoothie-tropical.jpg"
-                    alt="fresh juice">
-                <H1>
-                    <li>Desserts & Sweets</li>
-                </H1>
-                <img src="https://whimsyandspice.com/wp-content/uploads/2022/09/28-Of-The-Best-Traditional-Chinese-Dessert-Recipes.jpg"
-                    alt="desserts & sweets">
-                <h1>
-                    <li>naana khari</li>
-                    <img src="https://pipingpotcurry.com/wp-content/uploads/2023/02/Best-Chicken-Karahi-Recipe-Piping-Pot-Curry.jpg"
-                        alt="naan khari">
-                </H1>
-                <h1>
-                    <li>daal channa and roti </li>
-                </h1>
-                <img src="https://i.ytimg.com/vi/u2aAxgghhQY/maxresdefault.jpg" alt="daalchanna and roti">
-                <br>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d... (apne location ka iframe code) ..."
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </br>
-                <h1>
+            Email:<input type="email" name="my email"><br>
 
-                </h1>
+        </div>
 
-            </ul>
-            <button class="btn" onclick="booking()">Book a Table</button>
-        </section>
+        <br>
 
-        <section id="contact" class="section">
-            <h1>Contact Us</h1>
-            <p>Address: 123 Main Street, City</p>
-            <p>Phone: +123-456-7890</p>
-            <p>Email:amjad123@GOOGLE.com</p>
-        </section>
-    </main>
-    <h2>About Us</h2>
-    <p>Amjad Restaurant offers a variety of delicious cuisines and a friendly environment to make your dining
-        experience memorable. Whether you're here for lunch or dinner,breakfast, we have something special for everyone!
-    </p>
+        <br>
+        <div>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <Div>
+                <input type="submit" Value="submit Now" </div>
+
+                <button type="reset" class="reset">reset</button>
+                </from>
+                <script>
+                    const msg =
+                        document.getElementById('msg');
+                    from.addEventlistener('submint'),
+                        function (event)
+                        {
+                            event.preventdefult(),//page
+                                msg.textContent = "your message has been submitted(demo only).";
+                            from.reset();//
+                        });
+
+                </script>
+
+    </section>
 
     <footer>
 
     </footer>
-
-    <script>
-
-    </script>
 
 </body>
 
