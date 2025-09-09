@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML + CSS + JS Demo</title>
+    <style>
+        /* CSS (Style) */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f0f0f0;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: #2ecc71;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #27ae60;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HTML (Structure) -->
+    <h1>Welcome to My Demo Page</h1>
+    <p id="text">This text will change when you click the button.</p>
+    <button onclick="changeText()">Click Me</button>
+
+    <!-- JavaScript (Functionality) -->
+    <script>
+        function changeText ()
+        {
+            document.getElementById("text").innerHTML = "🎉 You clicked the button! This is JavaScript working.";
+        }
+    </script>
+
+</body>
+
+</html>

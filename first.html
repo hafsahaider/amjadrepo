@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Falah Welfare — Donate</title>
+    <meta name="description"
+        content="Falah Welfare is a non‑profit helping with education, health, food and water access. Donate securely.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bg: #0b1020;
+            /* base dark */
+            --muted: #151b31;
+            /* cards */
+            --brand: #00c2a8;
+            /* teal */
+            --brand-2: #4f46e5;
+            /* indigo */
+            --text: #e9ecf1;
+            /* light text */
+            --sub: #b7c1d6;
+            /* muted text */
+            --warn: #f59e0b;
+            /* amber */
+            --danger: #ef4444;
+            /* red */
+            --ok: #22c55e;
+            /* green */
+            --shadow: 0 10px 25px rgba(0, 0, 0, .25);
+            --radius: 22px;
+            --radius-sm: 14px;
+            --container: 1200px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(1200px 600px at 10% -10%, #152040 0%, transparent 70%),
+                radial-gradient(900px 500px at 110% 10%, #0e1a36 0%, transparent 60%),
+                var(--bg);
+            color: var(--text);
+            font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container);
+            margin-inline: auto;
+            padding-inline: 20px
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: saturate(160%) blur(8px);
+            background: rgba(11, 16, 32, .6);
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            letter-spacing: .5px
+        }
+
+        .brand i {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 26px
+        }
+
+        .brand span {
+            font-weight: 800
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 999px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid transparent
+        }
+
+        nav a:hover {
+            border-color: rgba(255, 255, 255, .15);
+            background: rgba(255, 255, 255, .06)
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .btn {
+            cursor: pointer;
+            border: 0;
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-weight: 800;
+            letter-spacing: .3px
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            color: #fff;
+            box-shadow: var(--shadow)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, .12)
+        }
+
+        /* Mobile nav */
+        .menu-toggle {
+            display: none
+        }
+
+        @media(max-width:900px) {
+            nav ul {
+                display: none
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, .12);
+                background: transparent;
+                color: var(--text)
+            }
+
+            .drawer {
+                position: fixed;
+                inset: 0 0 0 auto;
+                width: min(86%, 360px);
+                background: #0d142c;
+                border-left: 1px solid rgba(255, 255, 255, .08);
+                transform: translateX(100%);
+                transition: .35s ease;
+                z-index: 60;
+                display: flex;
+                flex-direction: column
+            }
+
+            .drawer.open {
+                transform: none
+            }
+
+            .drawer header {
+                position: relative;
+                border: 0
+            }
+
+            .drawer nav ul {
+                display: flex;
+                flex-direction: column;
+                padding: 10px
+            }
+
+            .drawer nav a {
+                padding: 14px 16px;
+                border-radius: 14px
+            }
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            padding: 0
+        }
+
+        .hero-wrap {
+            position: relative;
+            isolation: isolate
+        }
+
+        .hero-img {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            filter: brightness(.55) saturate(1.1)
+        }
+
+        .hero-inner {
+            min-height: 520px;
+            display: grid;
+            align-items: center
+        }
+
+        .badge {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(79, 70, 229, .18);
+            color: #d9ddff;
+            border: 1px solid rgba(79, 70, 229, .35);
+            font-weight: 700
+        }
+
+        h1 {
+            font-size: clamp(28px, 4.5vw, 48px);
+            margin: 16px 0 10px;
+            line-height: 1.2
+        }
+
+        .lead {
+            color: var(--sub);
+            font-size: 18px;
+            margin-bottom: 22px
+        }
+
+        .cta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        /* Sections */
+        section {
+            padding: 56px 0
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: clamp(22px, 3.5vw, 34px)
+        }
+
+        .section-sub {
+            color: var(--sub);
+            margin: 0 0 16px
+        }
+
+        /* Card */
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: var(--shadow)
+        }
+
+        /* Programs grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        @media(max-width:900px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .program {
+            display: grid;
+            grid-template-columns: 108px 1fr;
+            gap: 14px;
+            align-items: center
+        }
+
+        .program .thumb {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .12)
+        }
+
+        .program .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .program h3 {
+            margin: 0 0 6px
+        }
+
+        .program p {
+            margin: 0;
+            color: var(--sub)
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .stat {
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .07);
+            text-align: center
+        }
+
+        .stat .num {
+            font-size: clamp(26px, 4vw, 36px);
+            font-weight: 800
+        }
+
+        .stat .label {
+            color: var(--sub)
+        }
+
+        @media(max-width:900px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        /* Donation */
+        .donation {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 18px
+        }
+
+        @media(max-width:900px) {
+            .donation {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .amounts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .chip {
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            background: rgba(255, 255, 255, .04);
+            cursor: pointer;
+            font-weight: 800
+        }
+
+        .chip.active {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            border-color: transparent
+        }
+
+        .donation form {
+            display: grid;
+            gap: 12px
+        }
+
+        .field {
+            display: grid;
+            gap: 6px
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            background: rgba(255, 255, 255, .04);
+            color: var(--text)
+        }
+
+        .pay-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px
+        }
+
+        @media(max-width:700px) {
+            .pay-row {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .help {
+            color: var(--sub);
+            font-size: 13px
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .quote {
+            position: relative
+        }
+
+        .quote p {
+            margin: 0 0 10px;
+            color: var(--sub)
+        }
+
+        .quote .who {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .12)
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        @media(max-width:900px) {
+            .testimonials {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .02);
+            padding: 32px 0 60px
+        }
+
+        .foot {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 16px
+        }
+
+        .foot a {
+            color: var(--sub);
+            text-decoration: none
+        }
+
+        .copyright {
+            color: var(--sub);
+            margin-top: 12px;
+            font-size: 14px
+        }
+
+        @media(max-width:900px) {
+            .foot {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Utilities */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, .08);
+            margin: 8px 0 14px
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            color: var(--sub);
+            font-size: 13px
+        }
+
+        /* Floating WhatsApp */
+        .whats {
+            position: fixed;
+            inset: auto 16px 16px auto;
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            background: #25d366;
+            color: #fff;
+            z-index: 70;
+            box-shadow: var(--shadow)
+        }
+
+        /* Back to top */
+        #toTop {
+            position: fixed;
+            inset: auto 16px 84px auto;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            z-index: 60;
+            border: 1px solid rgba(255, 255, 255, .12);
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s
+        }
+
+        #toTop.show {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        /* Light theme demo */
+        .theme-toggle {
+            border: 1px solid rgba(255, 255, 255, .12)
+        }
+
+        .light body {
+            background: #f6f7fb;
+            color: #0b1020
+        }
+    </style>
+</head>
+
+<body>
+    <a class="sr-only" href="#main">Skip to content</a>
+
+    <header>
+        <div class="container nav">
+            <div class="brand" aria-label="Welfare brand">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <span>Falah Welfare</span>
+                <span class="tag"><i class="fa-solid fa-shield-heart"></i> 2009–2025</span>
+            </div>
+
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#donate">Donate</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="actions">
+                <button id="themeBtn" class="btn btn-ghost theme-toggle" aria-label="Toggle theme"><i
+                        class="fa-regular fa-moon"></i></button>
+                <a href="#donate" class="btn btn-primary">Donate Now</a>
+                <button class="menu-toggle" id="menuBtn" aria-label="Open menu"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <aside class="drawer" id="drawer" aria-hidden="true">
+        <header class="container nav">
+            <div class="brand"><i class="fa-solid fa-hand-holding-heart"></i><span>Falah Welfare</span></div>
+            <button class="menu-toggle" id="closeDrawer" aria-label="Close menu"><i
+                    class="fa-solid fa-xmark"></i></button>
+        </header>
+        <nav aria-label="Mobile">
+            <ul>
+                <li><a href="#programs" onclick="closeDrawer()">Programs</a></li>
+                <li><a href="#impact" onclick="closeDrawer()">Impact</a></li>
+                <li><a href="#donate" onclick="closeDrawer()">Donate</a></li>
+                <li><a href="#faq" onclick="closeDrawer()">FAQ</a></li>
+                <li><a href="#contact" onclick="closeDrawer()">Contact</a></li>
+            </ul>
+            <div class="container" style="margin-top:auto; padding-bottom:20px">
+                <a href="#donate" class="btn btn-primary" style="width:100%" onclick="closeDrawer()">Donate Now</a>
+            </div>
+        </nav>
+    </aside>
+
+    <main id="main">
+        <!-- Hero with image -->
+        <section class="hero">
+            <div class="hero-wrap">
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1600&auto=format&fit=crop"
+                        alt="Volunteers distributing food">
+                </div>
+                <div class="container hero-inner">
+                    <div>
+                        <span class="badge"><i class="fa-solid fa-bell"></i> Emergency & Ramadan appeals are open</span>
+                        <h1>Your donation can change a life</h1>
+                        <p class="lead">We support education, health, food and clean water. Your Zakat/Sadaqah is
+                            delivered with full transparency.</p>
+                        <div class="cta">
+                            <a href="#donate" class="btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i>
+                                Donate</a>
+                            <a href="#programs" class="btn btn-ghost"><i class="fa-solid fa-circle-info"></i> Learn
+                                more</a>
+                        </div>
+                        <div class="row" style="margin-top:10px">
+                            <span class="tag"><i class="fa-solid fa-lock"></i> SSL secure payment</span>
+                            <span class="tag"><i class="fa-solid fa-eye"></i> 100% transparency</span>
+                            <span class="tag"><i class="fa-solid fa-receipt"></i> Instant receipt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs -->
+        <section id="programs">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What we do</h2>
+                    <a href="#donate" class="btn btn-primary">Donate</a>
+                </div>
+                <p class="section-sub">With your support, these projects continue:</p>
+                <div class="grid">
+                    <article class="card program">
+                        <div class="thumb"><img
+                                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=600&auto=format&fit=crop"
+                                alt="Students studying"></div>
+                        <div>
+                            <h3>Education Scholarships</h3>
+                            <p>Fees, books, and teacher training for 500+ students each year.</p>
+                        </div>
+                    </article>
+                    <article class="card program">
+                        <div class="thumb"><img
+                                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=600&auto=format&fit=crop"
+                                alt="Medical support"></div>
+                        <div>
+                            <h3>Health & Treatment</h3>
+                            <p>Free medical camps, medicines, and sponsored surgeries.</p>
+                        </div>
+                    </article>
+                    <article class="card program">
+                        <div class="thumb"><img
+                                src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=600&auto=format&fit=crop"
+                                alt="Food distribution"></div>
+                        <div>
+                            <h3>Food & Rations</h3>
+                            <p>Monthly ration bags, Ramadan iftar, and a community food bank.</p>
+                        </div>
+                    </article>
+                    <article class="card program">
+                        <div class="thumb"><img
+                                src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop"
+                                alt="Clean water"></div>
+                        <div>
+                            <h3>Clean Water</h3>
+                            <p>Filtration plants, wells, and hand pumps for remote areas.</p>
+                        </div>
+                    </article>
+                    <article class="card program">
+                        <div class="thumb"><img
+                                src="https://www.fidelitycharitable.org/content/dam/fc-public/shared/images/rescuers-in-flood-water.jpg.transform/viewport-max/image.20211105.jpeg"
+                                alt="Disaster relief"></div>
+                        <div>
+                            <h3>Disaster Relief</h3>
+                            <p>Emergency shelters and relief kits during floods and earthquakes.</p>
+                        </div>
+                    </article>
+                    <article class="card program">
+                        <div class="thumb"><img src="https://c8.alamy.com/comp/EAD7T5/skills-and-job-EAD7T5.jpg"
+                                alt="Skills & jobs"></div>
+                        <div>
+                            <h3>Skills & Livelihood</h3>
+                            <p>Skills development courses and micro‑finance support.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact -->
+        <section id="impact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Your Impact (2024–2025)</h2>
+                    <span class="help">Live counter</span>
+                </div>
+                <div class="stats">
+                    <div class="stat card">
+                        <div class="num" data-count="125000">0</div>
+                        <div class="label">Meals distributed</div>
+                    </div>
+                    <div class="stat card">
+                        <div class="num" data-count="8200">0</div>
+                        <div class="label">Surgeries sponsored</div>
+                    </div>
+                    <div class="stat card">
+                        <div class="num" data-count="560">0</div>
+                        <div class="label">Water points</div>
+                    </div>
+                    <div class="stat card">
+                        <div class="num" data-count="5400">0</div>
+                        <div class="label">Scholarships</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation -->
+        <section id="donate">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Donation Form</h2>
+                    <span class="help"><i class="fa-solid fa-circle-question"></i> Choose Zakat / Sadaqah /
+                        Charity</span>
+                </div>
+                <div class="donation">
+                    <div class="card">
+                        <h3>Select an amount</h3>
+                        <div class="amounts" role="group" aria-label="Donation amounts">
+                            <button class="chip" data-amt="500">₨500</button>
+                            <button class="chip" data-amt="1000">₨1,000</button>
+                            <button class="chip" data-amt="2500">₨2,500</button>
+                            <button class="chip" data-amt="5000">₨5,000</button>
+                            <button class="chip" data-amt="10000">₨10,000</button>
+                            <button class="chip" data-amt="0">Custom amount</button>
+                        </div>
+                        <div class="divider"></div>
+                        <form id="donationForm" novalidate>
+                            <div class="field">
+                                <label for="amount">Amount (PKR)</label>
+                                <input type="number" id="amount" name="amount" min="1" placeholder="e.g., 2000"
+                                    required>
+                                <small class="help">Minimum PKR 1</small>
+                            </div>
+                            <div class="pay-row">
+                                <div class="field">
+                                    <label for="type">Type</label>
+                                    <select id="type" name="type" required>
+                                        <option value="zakat">Zakat</option>
+                                        <option value="sadaqah">Sadaqah</option>
+                                        <option value="charity">Charity</option>
+                                        <option value="general">General Fund</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="program">Program</label>
+                                    <select id="program" name="program" required>
+                                        <option value="education">Education</option>
+                                        <option value="health">Health</option>
+                                        <option value="food">Food</option>
+                                        <option value="water">Water</option>
+                                        <option value="emergency">Emergency</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pay-row">
+                                <div class="field">
+                                    <label for="name">Full name</label>
+                                    <input id="name" name="name" placeholder="Your name" required>
+                                </div>
+                                <div class="field">
+                                    <label for="phone">Phone/WhatsApp</label>
+                                    <input id="phone" name="phone" type="tel" placeholder="03263580486" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="email">Email (optional)</label>
+                                <input id="email" name="email" type="email"
+                                    placeholder="hafsahaiderhurmat263@gmail.com">
+                            </div>
+                            <div class="field">
+                                <label>Payment method</label>
+                                <div class="row">
+                                    <label class="tag"><input type="radio" name="method" value="easypaisa" required>
+                                        Easypaisa</label>
+                                    <label class="tag"><input type="radio" name="method" value="jazzcash">
+                                        JazzCash</label>
+                                    <label class="tag"><input type="radio" name="method" value="bank"> Bank
+                                        Transfer</label>
+                                    <label class="tag"><input type="radio" name="method" value="card"> Card</label>
+                                </div>
+                                <small class="help">Details will appear below.</small>
+                            </div>
+
+                            <div id="methodDetails" class="card" style="display:none"></div>
+
+                            <div class="row">
+                                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-lock"></i> Secure
+                                    Pay</button>
+                                <button type="button" id="savePledge" class="btn btn-ghost"><i
+                                        class="fa-regular fa-bookmark"></i> Pay later</button>
+                            </div>
+                            <small class="help">On submit, you will get an instant, downloadable receipt (demo).</small>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <h3>Other ways to give</h3>
+                        <p class="help">You can donate directly into our bank account:</p>
+                        <ul>
+                            <li>
+                                <Bank:habib></Bank:habib>Bank (PK)
+                            </li>
+                            <li>Account name: Falah Welfare</li>
+                            <li>Account #: 03263580486</li>
+                            <li>IBAN: PK00ABCD0000000000000001</li>
+                        </ul>
+                        <div class="divider"></div>
+                        <h3>Office & Contact</h3>
+                        <p class="help">Mon–Fri: 9am–5pm</p>
+                        <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.08)">
+                            <iframe title="Office Map"
+                                src="https://maps.google.com/maps?q=Lahore%20Pakistan&t=&z=12&ie=UTF8&iwloc=&output=embed"
+                                width="100%" height="220" style="border:0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>What people say</h2>
+                    <span class="help">Donor voices</span>
+                </div>
+                <div class="testimonials">
+                    <div class="quote card">
+                        <p>“Transparent and responsive team. Receipts arrive instantly.”</p>
+                        <div class="who">
+                            <div class="avatar"><img
+                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop"
+                                    alt="Avatar"></div> <strong>Ayesha — Lahore</strong>
+                        </div>
+                    </div>
+                    <div class="quote card">
+                        <p>“The education program covered our daughter’s school fees. Thank you!”</p>
+                        <div class="who">
+                            <div class="avatar"><img
+                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+                                    alt="Avatar"></div> <strong>Umer — Karachi</strong>
+                        </div>
+                    </div>
+                    <div class="quote card">
+                        <p>“During floods, relief reached our area quickly. Great coordination.”</p>
+                        <div class="who">
+                            <div class="avatar"><img
+                                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                                    alt="Avatar"></div> <strong>Kamran — Sukkur</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently asked questions</h2>
+                </div>
+                <div class="grid">
+                    <details class="card">
+                        <summary>Do you keep Zakat funds separate?</summary>
+                        <p class="help">Yes. Zakat is tracked separately and routed to eligible beneficiaries only.</p>
+                    </details>
+                    <details class="card">
+                        <summary>Will I receive a receipt?</summary>
+                        <p class="help">Absolutely. You’ll get an instant on‑screen and downloadable receipt.</p>
+                    </details>
+                    <details class="card">
+                        <summary>Can I donate internationally?</summary>
+                        <p class="help">Yes via bank/card (subject to local regulations).</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="container foot">
+            <div>
+                <h3>Falah Welfare</h3>
+                <p class="help">NPO Reg # 12345 — Tax Exempt</p>
+                <div class="row">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p class="help">Phone: 0326358486<br>Email:hafsahaiderhurmat263@gmail.com<br>WhatsApp: 03263580486</p>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <form id="newsletterForm" class="row" novalidate>
+                    <input id="newsletterEmail" type="email" placeholder="Your email" required>
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                </form>
+                <small class="help" id="newsletterMsg"></small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a class="whats" href="https://wa.me/923001234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <button id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+        // Helpers
+        const $ = (s, el = document) => el.querySelector(s);
+        const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+        // Year
+        $('#year').textContent = new Date().getFullYear();
+
+        // Mobile drawer
+        const drawer = $('#drawer');
+        const menuBtn = $('#menuBtn');
+        const closeDrawerBtn = $('#closeDrawer');
+        const closeDrawer = () => { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true') };
+        menuBtn.addEventListener('click', () => { drawer.classList.add('open'); drawer.setAttribute('aria-hidden', 'false') });
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+
+        // Theme toggle (demo only)
+        $('#themeBtn').addEventListener('click', () =>
+        {
+            document.documentElement.classList.toggle('light');
+        });
+
+        // Back to top
+        const toTop = $('#toTop');
+        window.addEventListener('scroll', () =>
+        {
+            if (window.scrollY > 400) toTop.classList.add('show'); else toTop.classList.remove('show');
+        });
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Impact counters
+        const counters = $$('.num');
+        const inView = (el) =>
+        {
+            const r = el.getBoundingClientRect();
+            return r.top < window.innerHeight && r.bottom > 0;
+        }
+        let counted = false;
+        const animateCounters = () =>
+        {
+            if (counted) return;
+            if (!inView($('#impact'))) return;
+            counted = true;
+            counters.forEach(el =>
+            {
+                const target = +el.dataset.count;
+                const start = 0;
+                const dur = 1600 + Math.random() * 800;
+                const t0 = performance.now();
+                const step = (t) =>
+                {
+                    const p = Math.min(1, (t - t0) / dur);
+                    const val = Math.floor(start + (target - start) * p);
+                    el.textContent = val.toLocaleString('en-PK');
+                    if (p < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            });
+        };
+        window.addEventListener('scroll', animateCounters);
+        window.addEventListener('load', animateCounters);
+
+        // Donation chips
+        const amountInput = $('#amount');
+        $$('.chip').forEach(btn => btn.addEventListener('click', () =>
+        {
+            $$('.chip').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const val = +btn.dataset.amt;
+            if (val > 0) amountInput.value = val;
+            else
+            {
+                amountInput.value = '';
+                amountInput.focus();
+            }
+        }));
+
+        // Payment method dynamic details
+        const methodDetails = $('#methodDetails');
+        $$('input[name="method"]').forEach(r => r.addEventListener('change', (e) =>
+        {
+            const v = e.target.value;
+            methodDetails.style.display = 'block';
+            if (v === 'easypaisa')
+            {
+                methodDetails.innerHTML = `
+          <strong>Easypaisa details</strong>
+          <p class="help">Account: 03xx-xxxxxxx (Falah Welfare) — Reference: DONATE</p>
+          <p class="help">After payment, please upload a screenshot (field coming soon).</p>
+        `;
+            } else if (v === 'jazzcash')
+            {
+                methodDetails.innerHTML = `
+          <strong>JazzCash details</strong>
+          <p class="help">Account: 03xx-xxxxxxx — Reference: DONATE</p>
+        `;
+            } else if (v === 'bank')
+            {
+                methodDetails.innerHTML = `
+          <strong>Bank transfer</strong>
+          <p class="help">ABC Bank (PK) — A/C: 01234567890123 — IBAN: PK00ABCD0000000000000001</p>
+        `;
+            } else if (v === 'card')
+            {
+                methodDetails.innerHTML = `
+          <strong>Card</strong>
+          <p class="help">Card payments are coming soon. For now please use bank/wallet.</p>
+        `;
+            }
+        }));
+
+        // Donation form submit (demo: generate receipt and store in localStorage)
+        const donationForm = $('#donationForm');
+        donationForm.addEventListener('submit', (e) =>
+        {
+            e.preventDefault();
+            const fd = new FormData(donationForm);
+            const amount = +fd.get('amount');
+            if (!amount || amount < 1) { alert('Please enter a valid amount'); return; }
+            const data = Object.fromEntries(fd.entries());
+            const id = 'FW-' + Date.now();
+            const record = { ...data, id, date: new Date().toISOString() };
+            const key = 'falah_donations';
+            const prev = JSON.parse(localStorage.getItem(key) || '[]');
+            prev.push(record);
+            localStorage.setItem(key, JSON.stringify(prev));
+            // Create receipt
+            const receipt = `\n===== Falah Welfare — Donation Receipt =====\nReceipt #: ${id}\nDate: ${new Date().toLocaleString()}\nDonor: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email || '-'}\nType: ${data.type}\nProgram: ${data.program}\nAmount: PKR ${Number(amount).toLocaleString('en-PK')}\nMethod: ${data.method || '-'}\n===========================================\nThank you for your support!`;
+            const blob = new Blob([receipt], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = id + '.txt'; a.click();
+            URL.revokeObjectURL(url);
+            alert('Thank you! Your receipt has downloaded.');
+            donationForm.reset();
+            methodDetails.style.display = 'none';
+            $$('.chip').forEach(b => b.classList.remove('active'));
+        });
+
+        // Save pledge for later
+        $('#savePledge').addEventListener('click', () =>
+        {
+            const val = amountInput.value || '0';
+            localStorage.setItem('pledge_amount', val);
+            alert('Pledge saved — you can complete the payment later.');
+        });
+
+        // Newsletter mock
+        $('#newsletterForm').addEventListener('submit', (e) =>
+        {
+            e.preventDefault();
+            const email = $('#newsletterEmail').value.trim();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('#newsletterMsg').textContent = 'Please enter a valid email'; return; }
+            const list = JSON.parse(localStorage.getItem('falah_news') || '[]');
+            list.push({ email, at: Date.now() });
+            localStorage.setItem('falah_news', JSON.stringify(list));
+            $('#newsletterMsg').textContent = 'Thanks! You are subscribed.';
+            e.target.reset();
+        });
+
+        // Basic input masking for phone
+        $('#phone').addEventListener('input', (e) =>
+        {
+            e.target.value = e.target.value.replace(/[^0-9\-\+\s]/g, '');
+        });
+    </script>
+</body>
+
+</html>

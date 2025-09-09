@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>English Grammar — Parts of Speech</title>
+    <meta name="description"
+        content="Beautiful, responsive guide to the 9 parts of speech with search, examples, and a built‑in quiz." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #11182a;
+            --muted: #9eb0c8;
+            --text: #eaf2ff;
+            --brand: #6aa6ff;
+            --brand2: #9a6bff;
+            --ok: #25d366;
+            --warn: #f7b500;
+            --danger: #ff5c5c;
+            --ring: 0 0 0 3px rgba(106, 166, 255, .25)
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0
+        }
+
+        body {
+            font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+            color: var(--text);
+            background: linear-gradient(180deg, #06101f, #0b0f19 40%, #0b0f19)
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        /* NAV */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: rgba(11, 15, 25, .6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            letter-spacing: .2px
+        }
+
+        .brand .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), var(--brand2))
+        }
+
+        .links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(106, 166, 255, .35)
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero .bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .7;
+            filter: blur(60px);
+            background: radial-gradient(600px 200px at 10% -10%, rgba(154, 107, 255, .35), transparent), radial-gradient(600px 200px at 90% -10%, rgba(106, 166, 255, .35), transparent)
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            padding: 72px 0 36px
+        }
+
+        .headline {
+            font-family: Nunito, Inter;
+            font-weight: 800;
+            font-size: clamp(28px, 5vw, 56px);
+            line-height: 1.06;
+            margin: 0 0 10px
+        }
+
+        .sub {
+            color: var(--muted);
+            max-width: 800px
+        }
+
+        /* toolbar */
+        .toolbar {
+            margin-top: 22px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .search {
+            flex: 1 1 280px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 10px 12px
+        }
+
+        .search input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text)
+        }
+
+        .chip {
+            border: 1px solid rgba(255, 255, 255, .15);
+            padding: 8px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+            user-select: none
+        }
+
+        .chip.active {
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            border-color: transparent
+        }
+
+        /* GRID */
+        section {
+            padding: 54px 0
+        }
+
+        .section-title {
+            font-size: clamp(22px, 3.5vw, 34px);
+            margin: 0 0 12px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        @media (max-width:960px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:640px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .25)
+        }
+
+        .card h3 {
+            margin: 12px 12px 6px;
+            font-size: 20px
+        }
+
+        .card .def {
+            color: var(--muted);
+            margin: 0 12px 10px
+        }
+
+        .pill {
+            margin: 0 12px 10px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .pill span {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 13px
+        }
+
+        .examples {
+            margin: 0 12px 14px;
+            padding: 12px;
+            border-top: 1px dashed rgba(255, 255, 255, .08);
+            color: #d9e7ff
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin: 0 12px 14px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            cursor: pointer;
+            font-weight: 700
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--brand), var(--brand2));
+            border-color: transparent
+        }
+
+        /* QUIZ */
+        .quiz {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 18px;
+            padding: 16px
+        }
+
+        .qline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px
+        }
+
+        .progress {
+            height: 8px;
+            background: #0f1526;
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(135deg, var(--brand), var(--brand2))
+        }
+
+        .qcard {
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 14px;
+            padding: 14px;
+            margin-top: 10px
+        }
+
+        .choices {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px
+        }
+
+        .choice {
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: #0b1122;
+            cursor: pointer
+        }
+
+        .choice.correct {
+            outline: var(--ok) solid 2px
+        }
+
+        .choice.wrong {
+            outline: var(--danger) solid 2px
+        }
+
+        .kbd {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 12px;
+            background: #0b1122;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 6px;
+            padding: 2px 6px
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            background: #0a1020
+        }
+
+        .foot {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 18px
+        }
+
+        @media (max-width:900px) {
+            .foot {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <div class="nav">
+        <div class="container nav-inner">
+            <div class="brand"><span class="dot"></span> Grammar Lab</div>
+            <div class="links">
+                <a href="#parts">Parts</a>
+                <a href="#quiz">Quiz</a>
+                <a class="cta" href="#guide">Quick Guide</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="bg"></div>
+        <div class="container hero-inner">
+            <h1 class="headline">Master the <em>Parts of Speech</em></h1>
+            <p class="sub">A clean, responsive mini‑site to learn and practice English grammar: definitions, examples,
+                Urdu tips, and a smart quiz. <span class="kbd">Made for students & teachers</span></p>
+            <div class="toolbar">
+                <div class="search" role="search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input id="search" placeholder="Search: noun, verb, adjective…"
+                        aria-label="Search parts of speech" />
+                </div>
+                <button class="chip active" data-filter="All">All</button>
+                <button class="chip" data-filter="Open">Open class</button>
+                <button class="chip" data-filter="Closed">Closed class</button>
+                <button class="chip" id="startQuizBtn"><i class="fa-solid fa-spell-check"></i> Start Quiz</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PARTS GRID -->
+    <section id="parts">
+        <div class="container">
+            <h2 class="section-title">9 Core Parts of Speech</h2>
+            <p class="muted">Tap any card to copy examples; filter by <strong>Open class</strong> (new words can enter:
+                nouns, verbs, adjectives, adverbs) vs <strong>Closed class</strong> (fixed set: pronouns, prepositions,
+                conjunctions, determiners/articles, interjections).</p>
+            <div id="grid" class="grid" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz">
+        <div class="container">
+            <h2 class="section-title">Practice Quiz</h2>
+            <div class="quiz">
+                <div class="qline">
+                    <div><strong>Question <span id="qnum">1</span>/10</strong> · <span id="qhint" class="muted"></span>
+                    </div>
+                    <div style="min-width:160px" class="progress" aria-hidden="true">
+                        <div class="bar" id="bar"></div>
+                    </div>
+                </div>
+                <div class="qcard">
+                    <div id="qtext" style="font-size:18px"></div>
+                    <div id="choices" class="choices"></div>
+                    <div style="display:flex;gap:10px;margin-top:12px">
+                        <button class="btn" id="skip"><i class="fa-solid fa-forward"></i> Skip</button>
+                        <button class="btn primary" id="next" disabled><i class="fa-solid fa-circle-check"></i>
+                            Next</button>
+                    </div>
+                    <p class="muted" id="feedback" style="margin:8px 0 0"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK GUIDE -->
+    <section id="guide">
+        <div class="container">
+            <h2 class="section-title">Quick Reference</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Open vs Closed</h3>
+                    <p class="def">Open class grows (new slang/tech words). Closed class is limited (e.g., prepositions
+                        like <em>in, on, at</em>).</p>
+                </div>
+                <div class="card">
+                    <h3>Word families</h3>
+                    <p class="def"><strong>Create</strong> (verb) → <strong>creative</strong> (adj) →
+                        <strong>creatively</strong> (adv) → <strong>creation</strong> (noun).
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Urdu Tip</h3>
+                    <p class="def">Verb aksar <em>kaam</em> ya <em>harkat</em> batata hai (جیسے: run, think). Adjective
+                        <em>sifat</em> batata hai (خوبصورتی، بڑا).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <section class="container foot">
+            <div>
+                <h3>Grammar Lab</h3>
+                <p class="muted">Free, offline, responsive parts‑of‑speech reference with examples and a quick quiz.</p>
+                <p class="muted">© <span id="year"></span> Grammar Lab. All rights reserved.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <p><a href="#parts">Parts</a><br><a href="#quiz">Quiz</a><br><a href="#guide">Guide</a></p>
+            </div>
+            <div>
+                <h4>Keyboard</h4>
+                <p class="muted"><span class="kbd">N</span> next · <span class="kbd">S</span> skip · <span
+                        class="kbd">/</span> search</p>
+            </div>
+        </section>
+    </footer>
+
+    <div id="toast"
+        style="position:fixed;left:50%;transform:translateX(-50%);bottom:18px;display:none;background:#1c2333;border:1px solid rgba(255,255,255,.08);padding:10px 14px;border-radius:12px">
+    </div>
+
+    <script>
+        const PARTS = [
+            { key: 'noun', title: 'Noun', family: 'Open', icon: 'fa-box', def: 'Names a person, place, thing, or idea.', tags: ['countable', 'proper', 'abstract'], examples: ['teacher', 'Karachi', 'happiness', 'phone'] },
+            { key: 'pronoun', title: 'Pronoun', family: 'Closed', icon: 'fa-user-large', def: 'Replaces a noun to avoid repetition.', tags: ['subject', 'object', 'possessive'], examples: ['I', 'she', 'them', 'yours'] },
+            { key: 'verb', title: 'Verb', family: 'Open', icon: 'fa-bolt', def: 'Shows an action or a state of being.', tags: ['transitive', 'intransitive', 'be/aux'], examples: ['run', 'think', 'is', 'have'] },
+            { key: 'adjective', title: 'Adjective', family: 'Open', icon: 'fa-wand-magic-sparkles', def: 'Describes a noun or pronoun.', tags: ['quality', 'quantity', 'comparative'], examples: ['beautiful', 'three', 'taller', 'Pakistani'] },
+            { key: 'adverb', title: 'Adverb', family: 'Open', icon: 'fa-gauge-high', def: 'Modifies a verb, adjective, or adverb (often ends with -ly).', tags: ['manner', 'time', 'degree'], examples: ['quietly', 'now', 'very', 'often'] },
+            { key: 'preposition', title: 'Preposition', family: 'Closed', icon: 'fa-location-dot', def: 'Shows relationship in time, place, or direction.', tags: ['place', 'time', 'direction'], examples: ['in', 'on', 'at', 'towards'] },
+            { key: 'conjunction', title: 'Conjunction', family: 'Closed', icon: 'fa-link', def: 'Connects words, phrases, or clauses.', tags: ['coordinating', 'subordinating', 'correlative'], examples: ['and', 'but', 'because', 'either…or'] },
+            { key: 'determiner', title: 'Determiner / Article', family: 'Closed', icon: 'fa-file-lines', def: 'Introduces a noun; specifies which one/how many.', tags: ['a/an/the', 'this/that', 'some/any'], examples: ['a', 'the', 'this', 'many'] },
+            { key: 'interjection', title: 'Interjection', family: 'Closed', icon: 'fa-face-smile-beam', def: 'Expresses emotion or reaction.', tags: ['surprise', 'pain', 'joy'], examples: ['wow!', 'ouch!', 'hey!', 'bravo!'] }
+        ];
+
+        const grid = document.getElementById('grid');
+        const toast = document.getElementById('toast');
+
+        function card (p)
+        {
+            const ex = p.examples.map(e => `<code class="kbd">${e}</code>`).join(' ');
+            const tags = p.tags.map(t => `<span>${t}</span>`).join('');
+            return `<article class="card" tabindex="0" role="article" aria-label="${p.title}">
+        <h3><i class="fa-solid ${p.icon}"></i> ${p.title}</h3>
+        <p class="def">${p.def}</p>
+        <div class="pill">${tags}</div>
+        <div class="examples"><strong>Examples:</strong> ${ex}</div>
+        <div class="actions">
+          <button class="btn" data-copy="${p.examples.join(', ')}"><i class="fa-regular fa-copy"></i> Copy examples</button>
+          <button class="btn primary" data-quiz="${p.key}"><i class="fa-solid fa-spell-check"></i> Quiz me</button>
+        </div>
+      </article>`
+        }
+
+        function render (filter = 'All', q = '')
+        {
+            grid.innerHTML = '';
+            const list = PARTS.filter(p => (filter === 'All' || p.family === filter) && (p.title.toLowerCase().includes(q) || p.def.toLowerCase().includes(q) || p.examples.join(' ').toLowerCase().includes(q)));
+            list.forEach(p => { const wrap = document.createElement('div'); wrap.innerHTML = card(p); grid.appendChild(wrap.firstElementChild); });
+            attachCardHandlers();
+        }
+
+        function attachCardHandlers ()
+        {
+            grid.querySelectorAll('[data-copy]').forEach(btn =>
+            {
+                btn.onclick = async () => { await navigator.clipboard.writeText(btn.dataset.copy); showToast('Copied examples to clipboard'); };
+            });
+            grid.querySelectorAll('[data-quiz]').forEach(btn =>
+            {
+                btn.onclick = () => startQuiz(btn.dataset.quiz);
+            });
+        }
+
+        function showToast (msg) { toast.textContent = msg; toast.style.display = 'block'; clearTimeout(showToast._t); showToast._t = setTimeout(() => toast.style.display = 'none', 3200); }
+
+        // Search + filter
+        const search = document.getElementById('search');
+        search.addEventListener('input', () => { render(document.querySelector('.chip.active')?.dataset.filter || 'All', search.value.trim().toLowerCase()); });
+        document.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () =>
+        {
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active')); ch.classList.add('active');
+            render(ch.dataset.filter || 'All', search.value.trim().toLowerCase());
+        }));
+
+        // QUIZ ENGINE
+        const QBANK = [
+            { text: 'Which word is a <strong>noun</strong>?', hint: 'Person/place/thing', choices: ['quickly', 'happiness', 'because', 'they'], answer: 'happiness' },
+            { text: 'Pick the <strong>verb</strong>.', hint: 'Action or state', choices: ['blue', 'run', 'wow', 'above'], answer: 'run' },
+            { text: 'Which is an <strong>adjective</strong>?', hint: 'Describes a noun', choices: ['beautiful', 'slowly', 'but', 'they'], answer: 'beautiful' },
+            { text: 'Select the <strong>adverb</strong>.', hint: 'Modifies verb/adj/adv', choices: ['because', 'quietly', 'phone', 'they'], answer: 'quietly' },
+            { text: 'Choose a <strong>preposition</strong>.', hint: 'Place/time/direction', choices: ['on', 'happy', 'jump', 'either'], answer: 'on' },
+            { text: 'Find the <strong>conjunction</strong>.', hint: 'Joins parts', choices: ['but', 'phone', 'red', 'kindly'], answer: 'but' },
+            { text: 'Pick a <strong>pronoun</strong>.', hint: 'Replaces a noun', choices: ['she', 'create', 'blue', 'at'], answer: 'she' },
+            { text: 'Which is a <strong>determiner/article</strong>?', hint: 'Introduces a noun', choices: ['the', 'run', 'wow', 'slowly'], answer: 'the' },
+            { text: 'Choose the <strong>interjection</strong>.', hint: 'Emotion!', choices: ['ouch!', 'them', 'under', 'create'], answer: 'ouch!' },
+            { text: 'In the sentence: “She sings beautifully,” what is <em>beautifully</em>?', hint: '-ly often helps', choices: ['adverb', 'verb', 'noun', 'preposition'], answer: 'adverb' },
+            { text: '“Either…or” is a type of…', hint: 'Pair connector', choices: ['conjunction', 'verb', 'adverb', 'interjection'], answer: 'conjunction' },
+            { text: '“Karachi” is a…', hint: 'Proper name', choices: ['noun', 'verb', 'adjective', 'adverb'], answer: 'noun' }
+        ];
+
+        let quizIx = 0, score = 0, order = [];
+        const qtext = document.getElementById('qtext'), choicesEl = document.getElementById('choices'), feedback = document.getElementById('feedback');
+        const qnum = document.getElementById('qnum'), nextBtn = document.getElementById('next'), skipBtn = document.getElementById('skip'), bar = document.getElementById('bar');
+
+        function shuffle (a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; } return a }
+
+        function startQuiz (focusKey)
+        {
+            score = 0; quizIx = 0; order = shuffle([...QBANK]).slice(0, 10);
+            if (focusKey)
+            { // bias a question to chosen part first
+                const idx = QBANK.findIndex(q => q.text.toLowerCase().includes(focusKey));
+                if (idx > -1) { order[0] = QBANK[idx]; }
+            }
+            renderQuestion();
+            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderQuestion ()
+        {
+            const q = order[quizIx]; qnum.textContent = quizIx + 1; feedback.textContent = ''; nextBtn.disabled = true;
+            qtext.innerHTML = q.text; document.getElementById('qhint').textContent = q.hint;
+            const opts = shuffle([...q.choices]); choicesEl.innerHTML = '';
+            opts.forEach(opt =>
+            {
+                const btn = document.createElement('button'); btn.className = 'choice'; btn.textContent = opt; btn.onclick = () => select(opt, q.answer, btn);
+                choicesEl.appendChild(btn);
+            });
+            bar.style.width = ((quizIx) / 10 * 100) + '%';
+        }
+
+        function select (opt, ans, btn)
+        {
+            choicesEl.querySelectorAll('.choice').forEach(b => b.disabled = true);
+            if (opt === ans) { btn.classList.add('correct'); score++; feedback.innerHTML = '✅ Correct'; }
+            else { btn.classList.add('wrong'); const right = [...choicesEl.children].find(b => b.textContent === ans); if (right) right.classList.add('correct'); feedback.innerHTML = '❌ Not quite'; }
+            nextBtn.disabled = false; bar.style.width = ((quizIx + 1) / 10 * 100) + '%';
+            try { localStorage.setItem('grammar.score', Math.max(score, +(localStorage.getItem('grammar.score') || 0))); } catch { }
+        }
+
+        nextBtn.addEventListener('click', () => { if (++quizIx >= 10) { finishQuiz(); } else { renderQuestion(); } });
+        skipBtn.addEventListener('click', () => { feedback.textContent = '(Skipped)'; nextBtn.disabled = false; });
+
+        function finishQuiz ()
+        {
+            qtext.innerHTML = `<strong>Great work!</strong> You scored ${score}/10. Best score: ${localStorage.getItem('grammar.score') || score}.`;
+            choicesEl.innerHTML = ''; feedback.textContent = 'Try again or study the cards above.'; nextBtn.disabled = true; bar.style.width = '100%';
+            showToast('Quiz completed! Score: ' + score + '/10');
+        }
+
+        // Keyboard shortcuts
+        window.addEventListener('keydown', (e) =>
+        {
+            const k = e.key.toLowerCase(); if (k === '/' || (k === 'f' && e.ctrlKey)) { e.preventDefault(); search.focus(); }
+            if (k === 'n') { if (!nextBtn.disabled) nextBtn.click(); }
+            if (k === 's') { skipBtn.click(); }
+        });
+
+        // Init
+        render();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('startQuizBtn').addEventListener('click', () => startQuiz());
+    </script>
+</body>
+
+</html>

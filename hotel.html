@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Bella — Fine Dining Restaurant</title>
+  <meta name="description" content="La Bella — Elegant dining, online reservations, menu, gallery, and contact." />
+  <link rel="icon" href="https://via.placeholder.com/32x32.png?text=LB" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  
+
+
+  <!-- Simple reset + styles -->
+
+  <style>
+    :root {
+      --accent: #D9816A;
+      /* warm coral */
+      --accent-2: #F4EBD9;
+      --bg: #0f1724;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --glass: rgba(255, 255, 255, 0.06);
+      --radius: 14px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Segoe UI, Arial;
+      color: #0b1220;
+      background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
+    }
+
+    /* Container */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px
+    }
+
+    /* NAV */
+    header {
+      position: sticky;
+      top: 12px;
+      z-index: 60
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: transparent;
+      padding: 8px 12px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #b9533f);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
+      font-family: Playfair Display
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 12px;
+      margin: 0;
+      padding: 0
+    }
+
+    nav a {
+      color: #0b1220;
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .cta {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700
+    }
+
+    /* Mobile nav */
+    .hamburger {
+      display: none;
+      cursor: pointer
+    }
+
+    @media (max-width:900px) {
+      nav ul {
+        display: none
+      }
+
+      .hamburger {
+        display: block
+      }
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: center;
+      padding: 28px 0
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.88));
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(15, 18, 32, 0.06)
+    }
+
+    .hero-title {
+      font-family: Playfair Display, serif;
+      font-size: 36px;
+      margin: 0 0 8px
+    }
+
+    .lead {
+      color: var(--muted);
+      margin-bottom: 18px
+    }
+
+    .features {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .feature {
+      background: var(--accent-2);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 600
+    }
+
+    .hero-right {
+      background-image: url('https://blogs.mercurynews.com/eat-drink-play/files/2015/04/chef_pds_013_h.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 18px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px;
+      color: white
+    }
+
+    .hero-right .overlay {
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.45));
+      padding: 14px;
+      border-radius: 12px
+    }
+
+    /* MENU */
+    .section {
+      padding: 48px 0
+    }
+
+    .section h2 {
+      font-family: Playfair Display;
+      font-size: 28px;
+      margin: 0 0 10px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(13, 15, 20, 0.04)
+    }
+
+    .menu-item {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .menu-item img {
+      width: 78px;
+      height: 78px;
+      object-fit: cover;
+      border-radius: 8px
+    }
+
+    .menu-item h4 {
+      margin: 0
+    }
+
+    .price {
+      margin-left: auto;
+      font-weight: 700
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px
+    }
+
+    .filter {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--glass);
+      cursor: pointer;
+      border: 1px solid rgba(11, 18, 32, 0.04)
+    }
+
+    .filter.active {
+      background: var(--accent);
+      color: white;
+      border: 0
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer
+    }
+
+    /* Reservation */
+    .reserve {
+      background: linear-gradient(180deg, #fff, #fff);
+      padding: 18px;
+      border-radius: 12px
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(11, 18, 32, 0.06)
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    /* Testimonials */
+    .testi {
+      display: flex;
+      gap: 12px;
+      overflow: hidden
+    }
+
+    .testi .slide {
+      min-width: 100%;
+      transition: transform .4s ease
+    }
+
+    /* Footer */
+    footer {
+      padding: 28px 0;
+      margin-top: 28px;
+      border-top: 1px solid rgba(11, 18, 32, 0.04)
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25D366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      z-index: 80
+    }
+
+    /* Responsive stacks */
+    @media (max-width:1100px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .hero {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width:700px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .hero {
+        padding: 8px
+      }
+
+      .hero-title {
+        font-size: 26px
+      }
+    }
+
+    /* small helpers */
+    .muted {
+      color: var(--muted)
+    }
+
+    .center {
+      text-align: center
+    }
+
+    /* simple utilities */
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .mb-8 {
+      margin-bottom: 8px
+    }
+
+    .mt-12 {
+      margin-top: 12px
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">LB</div>
+        <div>
+          <div style="font-weight:700">La Bella</div>
+          <div class="muted" style="font-size:12px">Fine Dining • Since 2001</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reserve">Reserve</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="row">
+        <a class="muted" href="tel:+1234567890">+1 (234) 567-890</a>
+        <a class="cta" href="#reserve">Reserve Table</a>
+      </div>
+
+      <div class="hamburger" aria-hidden="true" onclick="toggleMobileMenu()">☰</div>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <h1 class="hero-title">A taste of Italy — reimagined</h1>
+        <p class="lead">Seasonal ingredients, craft cocktails, and a cozy atmosphere. Join us for lunch, dinner, or a
+          private event.</p>
+
+        <div class="features mb-8">
+          <div class="feature">Outdoor Seating</div>
+          <div class="feature">Private Events</div>
+          <div class="feature">Tasting Menu</div>
+        </div>
+
+        <div class="row">
+          <a class="cta" href="#menu">View Menu</a>
+          <a style="margin-left:10px" href="#gallery" class="muted">See photos</a>
+        </div>
+
+        <div class="mt-12">
+          <h3 style="margin:0 0 6px">Hours</h3>
+          <div class="muted">Mon–Fri: 11:30am – 10pm • Sat–Sun: 11am – 11pm</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="overlay">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Chef's Table</div>
+              <div class="muted">Chef Marco Rossi</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:700">4.8 ★</div>
+              <div class="muted" style="font-size:13px">(1.5k reviews)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h2>Our Menu</h2>
+          <div class="muted">Hand-crafted dishes — updated seasonally</div>
+        </div>
+        <div class="filters" role="tablist" aria-label="Menu categories" id="filters">
+          <button class="filter active" data-cat="all">All</button>
+          <button class="filter active" data-cat="starters">Starters</button>
+          <button class="filter active" data-cat="mains">Mains</button>
+          <button class="filter active" data-cat="desserts">Desserts</button>
+          <button class="filter active" data-cat="drinks">Drinks</button>
+        </div>
+      </div>
+
+      <div class="grid mt-12" id="menuGrid">
+        <!-- Menu items inserted by JS -->
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <h2>Gallery</h2>
+      <div class="muted">A glimpse inside La Bella</div>
+      <div class="gallery mt-12" id="galleryGrid">
+        <!-- gallery images -->
+      </div>
+    </section>
+
+    <!-- RESERVATION & EVENTS -->
+    <section id="reserve" class="section">
+      <div style="display:grid;grid-template-columns:1fr 420px;gap:18px;align-items:start">
+        <div>
+          <h2>Book a Table</h2>
+          <div class="muted">Reserve online or call us at +1 (234) 567-890</div>
+
+          <div class="mt-12 card">
+            <form id="reservationForm" class="reserve" onsubmit="submitReservation(event)">
+              <div class="form-row mb-8">
+                <input required type="text" id="name" placeholder="Full name" />
+                <input required type="tel" id="phone" placeholder="Phone number" />
+              </div>
+
+              <div class="form-row mb-8">
+                <input required type="date" id="date" />
+                <input required type="time" id="time" />
+              </div>
+
+              <div class="form-row mb-8">
+                <select id="guests" required>
+                  <option value="">Guests</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5+</option>
+                </select>
+                <select id="area">
+                  <option>Seating area (Any)</option>
+                  <option>Indoor</option>
+                  <option>Outdoor</option>
+                  <option>Private Room</option>
+                </select>
+              </div>
+
+              <textarea id="notes" rows="3" placeholder="Special requests (allergies, celebrations)"></textarea>
+
+              <div style="display:flex;gap:10px;margin-top:12px">
+                <button type="submit">Request Reservation</button>
+                <button type="button" onclick="clearForm()" style="background:#efefef;color:#0b1220">Clear</button>
+              </div>
+
+              <div id="rstatus" class="muted mt-12" style="font-size:14px"></div>
+            </form>
+          </div>
+
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3 style="margin:0 0 8px">Private Events</h3>
+            <p class="muted">Book our private dining room for weddings, birthdays, and corporate events. Capacity up to
+              60 guests. Email <a href="mailto:events@labella.com">events@labella.com</a>.</p>
+
+            <h4 style="margin-top:14px">Specials</h4>
+            <ul class="muted">
+              <li>Sunday Brunch — Bottomless Mimosas</li>
+              <li>Weeknight Tasting Menu — 5 courses</li>
+            </ul>                                                                                                                                                                         
+          </div>
+
+          <div class="card mt-12">
+            <h4 style="margin:0 0 6px">Location</h4>
+            <div class="muted">123 Ocean Avenue, City, Country</div>
+            <!-- Google Map placeholder -->
+            <div style="margin-top:8px;border-radius:10px;overflow:hidden">
+              <iframe title="La Bella location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509782!2d-122.42067928468138!3d37.77902667975886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c3a1b0f%3A0x8b8d3a7c6c7f1a5b!2sUnion%20Square!5e0!3m2!1sen!2sus!4v1610000000000"
+                width="100%" height="200" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <h2>What People Say</h2>
+      <div class="muted">Real reviews from our guests</div>
+
+      <div style="margin-top:14px;position:relative;overflow:hidden;border-radius:12px;background:white;padding:8px">
+        <div class="testi" id="testiTrack">
+          <div class="slide card" style="padding:18px">
+            <strong>"Truly exceptional — the tasting menu is unforgettable."</strong>
+            <div class="muted mt-8">— Aisha K.</div>
+          </div>
+          <div class="slide card" style="padding:18px">
+            <strong>"Cozy ambiance and attentive staff. Perfect date night."</strong>
+            <div class="muted mt-8">— Omar R.</div>
+          </div>
+          <div class="slide card" style="padding:18px">
+            <strong>"Held our anniversary here — they made it magical."</strong>
+            <div class="muted mt-8">— Sara L.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
+        <div>
+          <h2>Contact</h2>
+          <p class="muted">Questions? Email us or visit during opening hours.</p>
+
+          <div class="card mt-12">
+            <p style="margin:0"><strong>Email</strong><br><a href="mailto:hello@labella.com">hello@labella.com</a></p>
+            <p style="margin-top:12px"><strong>Phone</strong><br><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+
+            <div class="socials mt-12">
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="Facebook">Facebook</a>
+              <a href="#" aria-label="X (Twitter)">X</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0">Get directions</h3>
+          <div class="muted">We are a 5-minute walk from Central Station.</div>
+
+          <div style="margin-top:12px" class="card">
+            <form onsubmit="sendMessage(event)" id="contactForm">
+              <input id="cname" placeholder="Your name" required />
+              <input id="cemail" type="email" placeholder="Your email" required />
+              <textarea id="cmsg" rows="4" placeholder="Message"></textarea>
+              <div style="margin-top:8px">
+                <button type="submit">Send message</button>
+              </div>
+              <div id="cstatus" class="muted mt-8" style="font-size:14px"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>
+        <strong>La Bella</strong>
+        <div class="muted">© <span id="year"></span> La Bella Restaurant — All rights reserved.</div>
+      </div>
+
+      <div class="muted">Built with ❤ • <a href="#" style="color:var(--accent)">Privacy Policy</a> • <a href="#"
+          style="color:var(--accent)">Terms</a></div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button (opens chat) -->
+  <a class="whatsapp" href="https://wa.me/1234567890?text=Hello%20La%20Bella%20I%20would%20like%20to%20reserve"
+    target="_blank" aria-label="Chat on WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M20.52 3.48A11.93 11.93 0 0 0 12 .5C6.48.5 1.93 4.9 1.05 10.05c-.48 2.47.1 5.22 1.58 7.73L.5 23.5l5.95-1.56c2.38 1.28 5.2 1.95 7.98 1.95 5.52 0 10.07-4.4 10.07-9.85 0-3.01-1.35-5.84-3.98-7.56z"
+        fill="#fff" opacity="0.05"></path>
+      <path
+        d="M17.3 14.69c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16s-.82 1.04-1.01 1.25c-.18.21-.36.24-.68.08-.32-.16-1.36-.5-2.59-1.6-.96-.87-1.61-1.94-1.8-2.26-.19-.33-.02-.51.14-.67.14-.14.32-.36.48-.54.15-.18.2-.3.32-.5.11-.21.05-.39-.03-.55-.08-.16-.7-1.7-.96-2.33-.25-.61-.51-.53-.71-.54l-.6-.01c-.2 0-.52.07-.79.37-.27.3-1.06 1.03-1.06 2.5 0 1.47 1.09 2.9 1.24 3.1.14.21 2.14 3.46 5.19 4.85 3.05 1.4 3.05.93 3.59.87.55-.06 1.78-.73 2.03-1.44.24-.71.24-1.32.17-1.44-.07-.12-.28-.19-.6-.35z"
+        fill="white"></path>
+    </svg>
+  </a>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox"
+    style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:90;align-items:center;justify-content:center;padding:20px">
+    <img id="lightImg" src="" alt=""
+      style="max-width:100%;max-height:90%;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,0.6)" />
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Basic data for menu & gallery (replace with your CMS/API later)
+    const MENU = [
+      { id: 1, cat: 'starters', title: 'Bruschetta al Pomodoro', desc: 'Toasted sourdough, vine tomatoes, basil, olive oil', price: '6.50', img: 'https://media.architecturaldigest.com/photos/56c64bb200777f0f265e4c11/master/pass/hotel-restaurants-001.jpg' },
+      { id: 2, cat: 'mains', title: 'Tagliatelle al Tartufo', desc: 'Fresh tagliatelle, black truffle cream, pecorino', price: '22.00', img: 'https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2022/11/tagliatelle-al-tartufo.jpg' },
+      { id: 3, cat: 'desserts', title: 'Tiramisu Classico', desc: 'Mascarpone, espresso-soaked ladyfingers, cocoa', price: '8.50', img: 'https://blog.giallozafferano.it/adryincucina/wp-content/uploads/2017/08/tiramisu-classico-e1590326240164.jpg' },
+      { id: 4, cat: 'drinks', title: 'Negroni', desc: 'Gin, Campari, sweet vermouth', price: '10.00', img: 'https://www.frontrangefed.com/wp-content/uploads/2022/12/Negroni-Featured.jpg' },
+      { id: 5, cat: 'mains', title: 'Salmone alla Griglia', desc: 'Grilled salmon, lemon beurre blanc, seasonal veg', price: '19.50', img: 'https://media.grandchef.net/ricette/salmone-alla-griglia/galleria/salmone-alla-griglia.jpg' },
+      { id: 6, cat: 'starters', title: 'Calamari Fritti', desc: 'Lightly fried, lemon aioli', price: '9.00', img: 'https://www.tribugolosa.com/cache/media/encornets-frits-jpg.jpeg/ogresize.jpg' }
+    ];
+
+
+
+    // Render menu items
+    const menuGrid = document.getElementById('menuGrid');
+    const galleryGrid = document.getElementById('galleryGrid');
+    const filtersNode = document.getElementById('filters');
+
+    function renderMenu (items)
+    {
+      menuGrid.innerHTML = '';
+      items.forEach(it =>
+      {
+        const d = document.createElement('div'); d.className = 'card';
+        d.innerHTML = `
+          <div class="menu-item">
+            <img src="${it.img}" alt="${it.title}" />
+            <div>
+              <h4>${it.title}</h4>
+              <div class="muted" style="font-size:13px">${it.desc}</div>
+            </div>
+            <div class="price">$${it.price}</div>
+          </div>
+        `;
+        menuGrid.appendChild(d);
+      });
+    }
+
+    // filter controls
+    filtersNode.addEventListener('click', (e) =>
+    {
+      const btn = e.target.closest('.filter');
+      if (!btn) return;
+      Array.from(filtersNode.querySelectorAll('.filter')).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      if (cat === 'all') renderMenu(MENU);
+      else renderMenu(MENU.filter(m => m.cat === cat));
+    });
+
+    // Gallery
+    function renderGallery ()
+    {
+      galleryGrid.innerHTML = '';
+      GALLERY.forEach(src =>
+      {
+        const img = document.createElement('img'); img.src = src; img.alt = 'Gallery image';
+        img.addEventListener('click', () => openLightbox(src));
+        galleryGrid.appendChild(img);
+      });
+    }
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightImg = document.getElementById('lightImg');
+    function openLightbox (src) { lightImg.src = src; lightbox.style.display = 'flex' }
+    lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; lightImg.src = '' })
+
+    // Simple reservation handler (client-side) — replace with real endpoint (Zapier, Formspree, Google Sheets API)
+    function submitReservation (e)
+    {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const guests = document.getElementById('guests').value;
+      const notes = document.getElementById('notes').value;
+
+      if (!name || !phone || !date || !time)
+      {
+        setStatus('Please fill the required fields', true); return;
+      }
+
+      // Demo: open mail client with prefilled reservation
+      const subject = encodeURIComponent('Reservation request — ' + name);
+      const body = encodeURIComponent(Name: ${name}\nPhone: ${phone}\nDate: ${date}\nTime: ${time}\nGuests: ${guests}\nNotes: ${notes});
+      window.location.href = mailto:reservations@labella.com?subject=${subject}&body=${body};
+      setStatus('Opening mail client to complete reservation...', false);
+    }
+
+    function setStatus (msg, isError)
+    {
+      const el = document.getElementById('rstatus'); el.textContent = msg; el.style.color = isError ? '#b00020' : 'inherit';
+    }
+
+    function clearForm () { document.getElementById('reservationForm').reset(); setStatus('Form cleared', false) }
+
+    // Contact form demo
+    function sendMessage (e)
+    {
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const msg = document.getElementById('cmsg').value.trim();
+      if (!name || !email) { document.getElementById('cstatus').textContent = 'Please add name and email'; return; }
+      // fallback: mailto
+      window.location.href = mailto:hello@labella.com?subject=${encodeURIComponent('Contact from ' + name)}&body=${encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')')};
+      document.getElementById('cstatus').textContent = 'Opening mail client to send your message.';
+    }
+
+    // Testimonials carousel (simple)
+    (function carousel ()
+    {
+      const track = document.getElementById('testiTrack');
+      let idx = 0; setInterval(() =>
+      {
+        idx = (idx + 1) % track.children.length;
+        track.style.transform = translateX(-${idx * 100}%);
+      }, 4000);
+    })();
+
+    // small helpers & init
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderMenu(MENU); renderGallery();
+
+    // Mobile menu toggle (very simple)
+    function toggleMobileMenu ()
+    {
+      const nav = document.querySelector('nav ul');
+      if (nav.style.display === 'flex') { nav.style.display = 'none' } else nav.style.display = 'flex';
+    }
+    window.toggleMobileMenu = toggleMobileMenu;
+
+    // Accessibility: close lightbox with ESC
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') { lightbox.style.display = 'none'; lightImg.src = '' } });
+
+    // progressive enhancement: if JS disabled, show basic fallback by server-rendering menu or provide printable PDF
+  </script>
+
+</body>
+
+</html>
